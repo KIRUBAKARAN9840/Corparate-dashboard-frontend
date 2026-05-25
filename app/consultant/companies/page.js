@@ -5,7 +5,7 @@ import { FiSearch, FiGlobe, FiPhoneCall, FiMapPin, FiChevronLeft, FiChevronRight
 import axios from 'axios';
 import axiosInstance from '../../../lib/axios';
 
-export default function AdminCompaniesListPage() {
+export default function CompaniesListPage() {
   const [companies, setCompanies] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [page, setPage] = useState(1);
@@ -165,7 +165,7 @@ export default function AdminCompaniesListPage() {
           </span>
           <input
             type="text"
-            placeholder="Type company name to search (min. 2 chars)..."
+            placeholder="Type company name to search..."
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             style={{

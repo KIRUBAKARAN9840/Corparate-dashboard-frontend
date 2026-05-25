@@ -7,7 +7,7 @@ import { FiLogOut, FiChevronLeft } from 'react-icons/fi';
 import axiosInstance from '../../lib/axios';
 import { getTabsByRole } from '../../lib/rolebase';
 
-export default function AdminLayout({ children }) {
+export default function ConsultantLayout({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -22,7 +22,7 @@ export default function AdminLayout({ children }) {
     }
     const userData = JSON.parse(storedUser);
     
-    if (userData.role !== 'admin') {
+    if (userData.role !== 'consultant') {
       router.push('/login');
       return;
     }
@@ -47,7 +47,7 @@ export default function AdminLayout({ children }) {
     return <div style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>;
   }
 
-  const navItems = getTabsByRole('admin');
+  const navItems = getTabsByRole('consultant');
 
   return (
     <div className="dashboard-container">
@@ -92,7 +92,7 @@ export default function AdminLayout({ children }) {
       <main className={`main-content ${isMinimized ? 'minimized' : ''}`}>
         <header className="topbar">
           <div className="page-info">
-            <span style={{ fontSize: '0.875rem', color: '#64748b', fontWeight: '500' }}>Admin Portal</span>
+            <span style={{ fontSize: '0.875rem', color: '#64748b', fontWeight: '500' }}>Consultant Portal</span>
           </div>
           
           <div className="user-profile">

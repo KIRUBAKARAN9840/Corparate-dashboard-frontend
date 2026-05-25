@@ -33,7 +33,11 @@ export default function LoginPage() {
 
     try {
       const endpoint = '/api/corporate/auth/login';
-      const response = await axiosInstance.post(endpoint, { mobile_number: mobileNumber, password: password });
+      const response = await axiosInstance.post(endpoint, { 
+        mobile_number: mobileNumber, 
+        password: password,
+        role: role 
+      });
 
       if (response.status === 200) {
         if (role === 'consultant' && response.data.data.role !== 'consultant') {
