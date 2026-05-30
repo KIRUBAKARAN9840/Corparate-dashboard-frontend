@@ -91,8 +91,8 @@ export default function AdminConvertedCompaniesListPage() {
       ) {
         return;
       }
-      console.error('Failed to fetch companies', err);
-      setError(err.response?.data?.detail || 'Failed to load companies list');
+      console.error('Failed to fetch companies', err.message || err);
+      setError(err.response?.data?.detail || err.message || 'Failed to load companies list');
     } finally {
       // Only disable loading state if this is the active request
       if (abortControllerRef.current === controller) {
